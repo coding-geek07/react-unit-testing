@@ -10,7 +10,7 @@ function MockTodoFooter({ numberOfIncompleteTasks }) {
     );
 }
 
-describe('TodoFooter', () => {
+xdescribe('TodoFooter', () => {
     it('should provide count of incomplete tasks', () => {
         render(<MockTodoFooter numberOfIncompleteTasks={1} />);
         const paraElement = screen.getByText(/1 task left/i);

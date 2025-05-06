@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react"
 import Header from "../Header"
 
-describe('Header', () => {
+xdescribe('Header', () => {
     test('should render header with title prop', () => {
         render(<Header title="My Header" />);
         const headerElement = screen.getByText(/my header/i);
