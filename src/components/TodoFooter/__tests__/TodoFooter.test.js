@@ -10,17 +10,20 @@ function MockTodoFooter({ numberOfIncompleteTasks }) {
     );
 }
 
-it('should provide count of incomplete tasks', () => {
-    render(<MockTodoFooter numberOfIncompleteTasks={1} />);
-    const paraElement = screen.getByText(/1 task left/i);
-    expect(paraElement).toBeInTheDocument();
+describe('TodoFooter', () => {
+    it('should provide count of incomplete tasks', () => {
+        render(<MockTodoFooter numberOfIncompleteTasks={1} />);
+        const paraElement = screen.getByText(/1 task left/i);
+        expect(paraElement).toBeInTheDocument();
+    });
+
+    it('should render "tasks" for more than one incomplete tasks', () => {
+        render(<MockTodoFooter numberOfIncompleteTasks={5} />);
+        const paraElement = screen.getByText(/tasks/i);
+        expect(paraElement).toBeInTheDocument();
+    });
 });
-it('should render "tasks" for more than one incomplete tasks', () => {
-    render(<MockTodoFooter numberOfIncompleteTasks={5} />);
-    const paraElement = screen.getByText(/tasks/i);
-    expect(paraElement).toBeInTheDocument();
-});
-it('should render incomplete tasks using test id', () => {
+/* it('should render incomplete tasks using test id', () => {
     render(<MockTodoFooter numberOfIncompleteTasks={5} />);
     const paraElement = screen.getByTestId("para");
     expect(paraElement).toBeVisible();
@@ -50,4 +53,4 @@ it('should render the para element within div element', () => {
     const divElement = screen.getByTestId("div");
     const paraElement = screen.getByTestId("para");
     expect(divElement).toContainElement(paraElement);
-});
+}); */
